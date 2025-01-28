@@ -1,4 +1,4 @@
-name: Build OnePlus Nord 4 Android 14/15 6.1 Kernel
+name: Test Build
 
 on:
   workflow_call:  # This allows this workflow to be called from another workflow
