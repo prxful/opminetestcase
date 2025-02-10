@@ -89,11 +89,6 @@ jobs:
           cd ./KernelSU-Next/kernel
           sed -i 's/ccflags-y += -DKSU_VERSION=16/ccflags-y += -DKSU_VERSION=12321/' ./Makefile
 
-      - name: Verify KernelSu Version
-        run: |
-          cd "$CONFIG/kernel_platform/common/drivers/kernelsu"
-          git rev-parse --short HEAD
-
       - name: Apply SUSFS Patches
         run: |
           echo "Changing to configuration directory: $CONFIG..."
@@ -186,9 +181,6 @@ jobs:
         run: |
           echo "Changing to configuration directory: $CONFIG..."
           cd "$CONFIG"
-
-          export KSU_GIT_VERSION=$(git -C ./kernel_platform/common/drivers/kernelsu rev-parse --short HEAD)
-          make -C ./kernel_platform/common/drivers/kernelsu
 
           echo "Building the kernel..."
           rm -rf ./kernel_platform/common/android/abi_gki_protected_exports_*
