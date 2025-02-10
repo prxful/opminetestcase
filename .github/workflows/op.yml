@@ -91,11 +91,8 @@ jobs:
 
       - name: Verify KernelSu Version
         run: |
-          ls -la
-          cd "$CONFIG/kernel_platform"
-          ls -la
-          cd ./KernelSU-Next/kernel
-          ls -la
+          cd "$CONFIG/kernel_platform/common/drivers/kernelsu"
+          git rev-parse --short HEAD
 
       - name: Apply SUSFS Patches
         run: |
@@ -187,11 +184,11 @@ jobs:
 
       - name: Build the Kernel
         run: |
-          export KSU_GIT_VERSION=$(git -C common/drivers/kernelsu rev-parse --short HEAD)
-          make -C common/drivers/kernelsu
-
           echo "Changing to configuration directory: $CONFIG..."
           cd "$CONFIG"
+
+          export KSU_GIT_VERSION=$(git -C ./kernel_platform/common/drivers/kernelsu rev-parse --short HEAD)
+          make -C ./kernel_platform/common/drivers/kernelsu
 
           echo "Building the kernel..."
           rm -rf ./kernel_platform/common/android/abi_gki_protected_exports_*
