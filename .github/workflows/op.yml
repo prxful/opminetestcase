@@ -1,6 +1,9 @@
 name: Build OnePlus Nord 4 Android 14/15 6.1 Kernel
 
 on:
+  push:
+    branches:
+      - main
   workflow_call: # This allows this workflow to be called from another workflow
   workflow_dispatch:
 
@@ -88,6 +91,10 @@ jobs:
 
       - name: Verify KernelSu Version
         run: |
+          ls -la
+          cd "$CONFIG/kernel_platform"
+          ls -la
+          cd ./KernelSU-Next/kernel
           ls -la
 
       - name: Apply SUSFS Patches
