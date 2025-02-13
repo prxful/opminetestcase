@@ -1,5 +1,8 @@
 name: Build Kernel Next-SUSFS For OP11
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       CPU:
@@ -52,6 +55,8 @@ jobs:
         run: |
           free -h
           df -h
+          rm -rf ./*
+          rm -rf kernel_workspace
 
       - name: Configure Git
         run: |
