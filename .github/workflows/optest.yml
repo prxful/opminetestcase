@@ -168,7 +168,11 @@ jobs:
           ls -la
           ls -la ./kernel_platform
           ls -la ./out
+          ls -la ./out/dist
+          ls -la ./out/dist/Image
           ls -la ./kernel_platform/out
+          ls -la ./kernel_platform/out/msm-kernel-pineapple-gki
+          ls -la ./kernel_platform/out/msm-kernel-pineapple-gki/dist/Image
 
       - name: Make AnyKernel3
         run: |
