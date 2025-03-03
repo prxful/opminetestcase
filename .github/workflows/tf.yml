@@ -44,7 +44,7 @@ jobs:
                       --copt=-mavx2 \
                       --copt=-mfma \
                       --copt=-mavxvnni \
-                      //tensorflow/tools/pip_package:build_pip_package
+                      //tensorflow/tools/pip_package:build_pip_package_py
 
       - name: Create TensorFlow Wheel Package
         run: |
