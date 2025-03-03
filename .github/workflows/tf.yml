@@ -53,7 +53,7 @@ jobs:
             --output-name tensorflow-custom \
             --project-name tensorflow \
             --platform manylinux2015_x86_64 \
-            /tmp/tensorflow_pkg
+            --output-dir /tmp/tensorflow_pkg
 
       - name: Upload TensorFlow Package
         uses: actions/upload-artifact@v4
